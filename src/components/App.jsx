@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { FeedbackOptions } from './FeedbackOptions';
-import { Notification } from './Notification';
-import { Section } from './Section';
-import { Statistics } from './Statistics';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Notification } from './Notification/Notification';
+import { Section } from './Section/Section';
+import { Statistics } from './Statistics/Statistics';
+// import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -30,14 +31,11 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <div
+        // className={css.container}
         style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          alignItems: 'center',
-          // fontSize: 40,
-          color: '#010101',
+          textAlign: 'center',
+          padding: 100,
+          width: 250,
         }}
       >
         <Section title="Please leave feedback">
@@ -48,7 +46,7 @@ export class App extends Component {
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 ? (
-            <Notification message="There is no feedback" />
+            <Notification message="No feedback given" />
           ) : (
             <Statistics
               good={good}
