@@ -13,7 +13,6 @@ export class App extends Component {
   };
 
   addFeedback = param => {
-    console.log(param);
     this.setState(prevstate => {
       const obj = { ...prevstate };
       obj[param] = obj[param] + 1;
